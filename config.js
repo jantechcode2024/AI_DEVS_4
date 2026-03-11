@@ -4,11 +4,14 @@ import { fileURLToPath } from "node:url";
 
 const MIN_NODE_VERSION = 24;
 const ROOT_DIR = path.dirname(fileURLToPath(import.meta.url));
-const ROOT_ENV_FILE = path.join(ROOT_DIR, "env.example");
+const ROOT_ENV_FILE = path.join(ROOT_DIR, ".env");
+const TEST = "test";
+
 const RESPONSES_ENDPOINTS = {
   openai: "https://api.openai.com/v1/responses",
   openrouter: "https://openrouter.ai/api/v1/responses"
 };
+
 const OPENROUTER_ONLINE_SUFFIX = ":online";
 const VALID_OPENAI_SEARCH_CONTEXT_SIZES = new Set(["low", "medium", "high"]);
 const VALID_OPENROUTER_WEB_ENGINES = new Set(["native", "exa"]);
@@ -38,6 +41,10 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY?.trim() ?? "";
 const requestedProvider = process.env.AI_PROVIDER?.trim().toLowerCase() ?? "";
 const hasOpenAIKey = Boolean(OPENAI_API_KEY);
 const hasOpenRouterKey = Boolean(OPENROUTER_API_KEY);
+
+export const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY?.trim() ?? "";
+export const AI_DEVS_API_KEY = process.env.AI_DEVS_API_KEY?.trim() ?? "";
+export { TEST };
 
 if (!hasOpenAIKey && !hasOpenRouterKey) {
   console.error("\x1b[31mError: API key is not set\x1b[0m");
@@ -74,6 +81,7 @@ const resolveProvider = () => {
 export const AI_PROVIDER = resolveProvider();
 export const AI_API_KEY = AI_PROVIDER === "openai" ? OPENAI_API_KEY : OPENROUTER_API_KEY;
 export const RESPONSES_API_ENDPOINT = RESPONSES_ENDPOINTS[AI_PROVIDER];
+
 export const OPENROUTER_EXTRA_HEADERS = {
   ...(process.env.OPENROUTER_HTTP_REFERER
     ? { "HTTP-Referer": process.env.OPENROUTER_HTTP_REFERER }
@@ -82,6 +90,7 @@ export const OPENROUTER_EXTRA_HEADERS = {
     ? { "X-Title": process.env.OPENROUTER_APP_NAME }
     : {})
 };
+
 export const EXTRA_API_HEADERS = AI_PROVIDER === "openrouter"
   ? OPENROUTER_EXTRA_HEADERS
   : {};
@@ -260,5 +269,4 @@ export const buildResponsesRequest = ({ model, tools, plugins, webSearch = false
   return request;
 };
 
-// Backward-compatible alias used in existing examples.
 export { OPENAI_API_KEY, OPENROUTER_API_KEY };

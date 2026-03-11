@@ -1,0 +1,12 @@
+{
+    "name": "tool_use",
+    "version": "1.0.0",
+    "type":"module",
+    "description": "Tool use (function calling) with files by Jano",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "license": "ISC"
+
+}

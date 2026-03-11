@@ -12,7 +12,7 @@ const config = {
 
 const queries = [
   // List files
-  "What files are in the sandbox?",
+  "Find the locations of provided suspect with name Wojciech and surname Bielik. ",
 
 //   // Create a file
 //   "Create a file called hello.txt with content: 'Hello, World!'",
@@ -40,12 +40,10 @@ const queries = [
 ];
 
 const main = async () => {
-  await initializeSandbox();
-  console.log("Sandbox prepared: empty state\n");
+  //await initializeSandbox();
 
-  for (const query of queries) {
     await processQuery(query, config);
-  }
+  
 };
 
 main().catch(console.error);
