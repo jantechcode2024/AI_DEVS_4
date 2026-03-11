@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "paczka mi zaginęła, ale nie pamiętam numeru. Zagadam później"
+  },
+  {
+    "role": "assistant",
+    "content": "Bez numeru paczki nie uda mi się jej sprawdzić. Spróbuj znaleźć numer w potwierdzeniu zamówienia, e-mailu lub na koncie u sprzedawcy. Gdy go znajdziesz, podaj — chętnie pomogę."
+  }
+]

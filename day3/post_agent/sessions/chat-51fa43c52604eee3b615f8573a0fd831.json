@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "wysłałem ticketa i nic się nie dzieje. Pracuje tam ktoś?"
+  },
+  {
+    "role": "assistant",
+    "content": "Cześć! Mogę pomóc tylko w sprawach związanych z przesyłkami (sprawdzenie statusu lub przekierowanie). Czy chodzi Ci o konkretną paczkę? Jeśli tak, podaj jej numer. W innych kwestiach dot. ticketów, zalecam kontakt z supportem przez inny kanał."
+  }
+]
