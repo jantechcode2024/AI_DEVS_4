@@ -1,0 +1,14 @@
+{
+    "name": "activation_route",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Activation route.",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "express": "^5.2.1"
+    }
+}
