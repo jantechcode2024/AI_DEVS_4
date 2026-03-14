@@ -49,7 +49,7 @@ const hasOpenRouterKey = Boolean(OPENROUTER_API_KEY);
 
 export const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY?.trim() ?? "";
 export const AI_DEVS_API_KEY = process.env.AI_DEVS_API_KEY?.trim() ?? "";
-export { TEST };
+
 
 if (!hasOpenAIKey && !hasOpenRouterKey) {
   console.error("\x1b[31mError: API key is not set\x1b[0m");
