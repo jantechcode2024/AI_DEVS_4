@@ -1,4 +1,4 @@
-import { AI_API_KEY, EXTRA_API_HEADERS, RESPONSES_API_ENDPOINT } from "../../../config.js";
+import { AI_API_KEY, EXTRA_API_HEADERS, RESPONSES_API_ENDPOINT } from "../../../../config.js";
 
 /**
  * Minimal wrapper around the Responses API.

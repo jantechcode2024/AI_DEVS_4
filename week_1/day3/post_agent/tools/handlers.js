@@ -1,8 +1,8 @@
-import { PACKAGES_API_URL, API_KEY, DESTINATION, TAVILY_API_KEY, TAVILY_URL} from "../../../config.js";
+import { PACKAGES_API_URL, API_KEY, DESTINATION, TAVILY_API_KEY, TAVILY_URL } from "../../../../config.js";
 
 
 async function postPackagesApi(body) {
-    console.log("Posting to Packages API with body:", body);
+  console.log("Posting to Packages API with body:", body);
   const res = await fetch(PACKAGES_API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -57,11 +57,11 @@ async function tavilySearch({ query, maxResults = 5 }) {
     answer: data?.answer ?? null,
     results: Array.isArray(data?.results)
       ? data.results.map((r) => ({
-          title: r?.title ?? "",
-          url: r?.url ?? "",
-          content: r?.content ?? "",
-          score: r?.score ?? null,
-        }))
+        title: r?.title ?? "",
+        url: r?.url ?? "",
+        content: r?.content ?? "",
+        score: r?.score ?? null,
+      }))
       : [],
   };
 }

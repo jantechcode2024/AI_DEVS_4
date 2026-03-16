@@ -1,4 +1,4 @@
-import { AI_API_KEY, EXTRA_API_HEADERS, RESPONSES_API_ENDPOINT } from "../../config.js";
+import { AI_API_KEY, EXTRA_API_HEADERS, RESPONSES_API_ENDPOINT } from "../../../../config.js";
 
 export const chat = async ({ model, input, tools, toolChoice = "auto", instructions }) => {
   const body = { model, input };
@@ -7,6 +7,7 @@ export const chat = async ({ model, input, tools, toolChoice = "auto", instructi
   if (tools) body.tool_choice = toolChoice;
   if (instructions) body.instructions = instructions;
    // ROZMOWA Z MODELEM 
+   console.log('test1')
   const response = await fetch(RESPONSES_API_ENDPOINT, {
     method: "POST",
     headers: {
@@ -16,14 +17,17 @@ export const chat = async ({ model, input, tools, toolChoice = "auto", instructi
     },
     body: JSON.stringify(body)
   });
-
+  console.log('test2')
 
   if (!response.ok) {
+    console.log('test3')
+
     const errorText = await response.text();
     throw new Error(`API error: ${response.status} ${response.statusText} - ${errorText}`);
   }
 
   const res = await response.json()
+  console.log("MODEL RESPONSE IS ", res)
   return res
 };
 
