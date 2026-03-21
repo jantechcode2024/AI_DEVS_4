@@ -6,11 +6,17 @@ const MIN_NODE_VERSION = 24;
 const ROOT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_ENV_FILE = path.join(ROOT_DIR, ".env");
 
+const EMBEDDINGS_ENDPOINTS = {
+  openai: "https://api.openai.com/v1/embeddings",
+  openrouter: "https://openrouter.ai/api/v1/embeddings"
+};
+
 export const PACKAGES_API_URL = process.env.PACKAGES_API_URL?.trim() || "";
 export const API_KEY = process.env.API_KEY?.trim() || "";
 export const DESTINATION = process.env.DESTINATION?.trim() || "";;
 export const TAVILY_API_KEY = process.env.TAVILY_API_KEY?.trim() || "";
 export const TAVILY_URL = process.env.TAVILY_URL?.trim() || "";
+
 
 const RESPONSES_ENDPOINTS = {
   openai: "https://api.openai.com/v1/responses",
@@ -86,6 +92,8 @@ const resolveProvider = () => {
 export const AI_PROVIDER = resolveProvider();
 export const AI_API_KEY = AI_PROVIDER === "openai" ? OPENAI_API_KEY : OPENROUTER_API_KEY;
 export const RESPONSES_API_ENDPOINT = RESPONSES_ENDPOINTS[AI_PROVIDER];
+export const EMBEDDINGS_API_ENDPOINT = EMBEDDINGS_ENDPOINTS[AI_PROVIDER];
+
 
 export const OPENROUTER_EXTRA_HEADERS = {
   ...(process.env.OPENROUTER_HTTP_REFERER
