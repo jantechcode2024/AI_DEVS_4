@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "type": "module",
     "description": "Post agent app.",
-    "main": "app.js",
+    "main": "robot.js",
     "scripts": {
-        "start": "node app.js"
+        "start": "node robot.js"
     },
     "license": "ISC",
     "dependencies": {
