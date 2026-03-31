@@ -56,6 +56,9 @@ const hasOpenRouterKey = Boolean(OPENROUTER_API_KEY);
 export const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY?.trim() ?? "";
 export const AI_DEVS_API_KEY = process.env.AI_DEVS_API_KEY?.trim() ?? "";
 export const LOGS_URL = process.env.LOGS_URL?.trim() || "";
+export const SCRAP_LOGIN = process.env.SCRAP_LOGIN?.trim() || "";
+export const SCRAP_PASSWORD = process.env.SCRAP_PASSWORD?.trim() || "";
+
 
 
 if (!hasOpenAIKey && !hasOpenRouterKey) {
