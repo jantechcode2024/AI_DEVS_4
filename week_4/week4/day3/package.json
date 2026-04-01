@@ -1,0 +1,16 @@
+{
+    "name": "post_agent",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Post agent app.",
+    "main": "ask.js",
+    "scripts": {
+        "start": "node ask.js"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "express": "^5.2.1",
+        "neo4j-driver": "^6.0.1",
+        "sharp": "^0.34.5"
+    }
+}
